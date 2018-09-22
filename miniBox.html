@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            text-align:center;
+        }
+        #container {
+            margin: 0 auto;
+            width:1000px;
+            height:600px;
+            background-color: bisque;
+            overflow: hidden;
+        }
+        div .miniBox {
+            width: 8px; height:8px;
+            float:left;
+            margin: 1px 1px;
+        }
+        div .miniBox:hover {
+            background-color:blueviolet;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>My first project</h1>
+    <p>plan: make many many mibox with random color, and if mouse over it, it change color</p>
+    <div id="container">
+
+    </div>
+    <script>
+        for (let i = 0; i < 6000; i++) {
+            document.getElementById('container').innerHTML += "<div class='miniBox'> </div>";;
+        };
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        let miniBoxs = document.querySelectorAll(".miniBox");
+        for (let j = 0; j < 6000; j++) {
+            var color = getRandomColor();
+            miniBoxs[j].style.background = color;
+        }
+        
+    </script>
+</body>
+</html>
